@@ -2,6 +2,7 @@ package com.mjtx.servlet;
 
 import com.mjtx.dao.QuestionsDao;
 import com.mjtx.entity.Questions;
+import com.mjtx.utils.RequestContextUtils;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,14 +17,8 @@ import java.io.IOException;
 public class QuestionsUpdate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String questionId = req.getParameter("questionId");
-        String questionsContent = req.getParameter("questionsContent");
-        String optionA = req.getParameter("optionA");
-        String optionB = req.getParameter("optionB");
-        String optionC = req.getParameter("optionC");
-        String optionD = req.getParameter("optionD");
-        String answer = req.getParameter("answer");
-        Questions q = new Questions(Integer.valueOf(questionId),questionsContent,optionA,optionB,optionC,optionD,answer);
+        RequestContextUtils.QuestionParameter result = RequestContextUtils.getExtractQuestionParameter(req);
+        Questions q = new Questions(Integer.parseInt(result.id()), result.question(), result.optionA(), result.optionB(), result.optionC(), result.optionD(), result.answer());
         QuestionsDao dao = new QuestionsDao();
         int update = dao.update(q);
         if(update==1){

@@ -24,7 +24,7 @@ public class UserAdd extends HttpServlet {
         String email = request.getParameter("email");
         User user = null;
         if (username == null || "".equals(username) || password == null || "".equals(password)) {
-            response.sendRedirect("/mjtx/register.html");
+            response.sendRedirect("/mjtx/register.jsp");
             return;
         } else {
             user = new User(null, username, password, sex, email);

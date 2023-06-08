@@ -5,18 +5,18 @@ package com.mjtx.entity;
  * @version V1.0 2021/2/22 20:06
  */
 public class User {
-    private Integer userid;
+    private Integer id;
     private String username;
     private String password;
-    private String sex;
+    private String gender;
     private String email;
 
-    public int getUserid() {
-        return userid;
+    public int getId() {
+        return id;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -35,12 +35,12 @@ public class User {
         this.password = password;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getEmail() {
@@ -54,11 +54,11 @@ public class User {
     public User() {
     }
 
-    public User(Integer userid, String username, String password, String sex, String email) {
-        this.userid = userid;
+    public User(Integer id, String username, String password, String gender, String email) {
+        this.id = id;
         this.username = username;
         this.password = password;
-        this.sex = sex;
+        this.gender = gender;
         this.email = email;
     }
 }

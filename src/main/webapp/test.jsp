@@ -1,13 +1,6 @@
 <%@ page import="com.mjtx.entity.Questions" %>
 <%@ page import="java.util.List" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
-
-<%--Created by IntelliJ IDEA.
-  User: mojitianxia
-  Date: 2021/2/27
-  Time: 22:35
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

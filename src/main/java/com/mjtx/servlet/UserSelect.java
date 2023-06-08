@@ -43,10 +43,10 @@ public class UserSelect extends HttpServlet {
         for (User user : userDAO.select()) {
 
             writer.print("<tr>");
-            writer.print("<td>" + user.getUserid() + "</td>");
+            writer.print("<td>" + user.getId() + "</td>");
             writer.print("<td>" + user.getUsername() + "</td>");
             writer.print("<td>" + user.getPassword() + "</td>");
-            writer.print("<td>" + user.getSex() + "</td>");
+            writer.print("<td>" + user.getGender() + "</td>");
             writer.print("<td>" + user.getEmail() + "</td>");
             writer.print("</tr>");
         }

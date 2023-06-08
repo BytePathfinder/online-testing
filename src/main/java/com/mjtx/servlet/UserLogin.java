@@ -25,7 +25,7 @@ public class UserLogin extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
         if (login) {
             HttpSession session = req.getSession();
-            resp.sendRedirect("/mjtx/BAM.html");
+            resp.sendRedirect("/mjtx/index.jsp");
         } else {
             resp.sendRedirect("/mjtx/login.jsp");
         }

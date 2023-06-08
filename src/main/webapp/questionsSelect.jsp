@@ -1,11 +1,5 @@
 <%@ page import="com.mjtx.entity.Questions" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: mojitianxia
-  Date: 2021/2/27
-  Time: 20:08
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,16 +26,23 @@
             for (Questions q : list) {
         %>
         <tr>
-            <td><%=q.questionId%></td>
-            <td><%=q.questionContent%></td>
-            <td><%=q.optionA%></td>
-            <td><%=q.optionB%></td>
-            <td><%=q.optionC%></td>
-            <td><%=q.optionD%></td>
-            <td><%=q.answer%></td>
+            <td><%=q.questionId%>
+            </td>
+            <td><%=q.questionContent%>
+            </td>
+            <td><%=q.optionA%>
+            </td>
+            <td><%=q.optionB%>
+            </td>
+            <td><%=q.optionC%>
+            </td>
+            <td><%=q.optionD%>
+            </td>
+            <td><%=q.answer%>
+            </td>
         </tr>
         <%
-           }
+            }
         %>
     </table>
 </div>

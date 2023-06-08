@@ -18,7 +18,7 @@ public class UserDao {
     JdbcUtils util = new JdbcUtils();
 
     public int add(User user) {
-        String sql = "insert into user (userid,username,password,sex,email) values (null,?,?,?,?)";
+        String sql = "insert into user (id,username,password,gender,email) values (null,?,?,?,?)";
         Connection con = null;
         PreparedStatement ps = null;
         int result = 0;
@@ -27,7 +27,7 @@ public class UserDao {
             ps = con.prepareStatement(sql);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
-            ps.setString(3, user.getSex());
+            ps.setString(3, user.getGender());
             ps.setString(4, user.getEmail());
             result = ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
@@ -39,14 +39,14 @@ public class UserDao {
     }
 
     public int delete(User user) {
-        String sql = "delete from user where userid=?";
+        String sql = "delete from user where id=?";
         Connection con = null;
         PreparedStatement ps = null;
         int result = 0;
         try {
             con = util.connection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, user.getUserid());
+            ps.setInt(1, user.getId());
             result = ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -57,7 +57,7 @@ public class UserDao {
     }
 
     public int update(User user) {
-        String sql = "update user set username=?,password=?,sex=?,email=? where userid=?";
+        String sql = "update user set username=?,password=?,gender=?,email=? where id=?";
         Connection con = null;
         PreparedStatement ps = null;
         int result = 0;
@@ -66,9 +66,9 @@ public class UserDao {
             ps = con.prepareStatement(sql);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
-            ps.setString(3, user.getSex());
+            ps.setString(3, user.getGender());
             ps.setString(4, user.getEmail());
-            ps.setInt(5, user.getUserid());
+            ps.setInt(5, user.getId());
             result = ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -85,16 +85,16 @@ public class UserDao {
         ResultSet rs = null;
         try {
             con = util.connection();
-            String sql = "select *from user";
+            String sql = "select * from user";
             pds = con.prepareStatement(sql);
             rs = pds.executeQuery();
             while (rs.next()) {
-                String userid = rs.getString("userid");
+                String userid = rs.getString("id");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                String sex = rs.getString("sex");
+                String gender = rs.getString("gender");
                 String email = rs.getString("email");
-                User user = new User(Integer.valueOf(userid), username, password, sex, email);
+                User user = new User(Integer.valueOf(userid), username, password, gender, email);
                 list.add(user);
             }
         } catch (ClassNotFoundException | SQLException e) {
